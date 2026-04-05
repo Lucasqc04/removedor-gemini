@@ -204,7 +204,8 @@ function App() {
         }
       }
 
-      setSelectedResult(completed.length > 0 ? 0 : null)
+      // Não abrir o viewer automaticamente — aguardar clique do usuário
+      setSelectedResult(null)
     } catch {
       setError('Falha ao processar. Reduza a area ou teste outra imagem.')
     } finally {

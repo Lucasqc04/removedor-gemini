@@ -32,7 +32,6 @@ function gaussianBlur(imageData: ImageData, sigma: number) {
   const data = imageData.data
 
   const radius = Math.ceil(sigma * 2.5)
-  const size = radius * 2 + 1
   const kernel: number[] = []
   let ksum = 0
   for (let i = -radius; i <= radius; i++) {

@@ -21,8 +21,6 @@ interface ControlPanelProps {
 
 
 export function ControlPanel({
-  corner,
-  onCornerChange,
   size,
   onSizeChange,
   expand,

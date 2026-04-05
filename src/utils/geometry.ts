@@ -54,6 +54,9 @@ export function superellipsePoints(
 ): { x: number; y: number }[] {
   const pts: { x: number; y: number }[] = []
 
+  // Referencia `n` para compatibilidade com chamadas antigas (evita TS6133)
+  void n
+
 const pinch = 0.48
 const pointiness = 5.6
 

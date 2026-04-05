@@ -1,0 +1,139 @@
+/* Styles for the ImageViewer (replacement for Tailwind utilities used previously) */
+.iv-root {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start; /* colocar o header no topo */
+}
+
+.iv-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  pointer-events: auto; /* bloqueia interação com o fundo */
+  z-index: 5;
+}
+
+.iv-modal {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh; /* garantir ocupa toda a viewport quando renderizado em portal */
+}
+
+.iv-header {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+}
+
+.iv-title {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 50%;
+}
+
+@media (min-width: 640px) {
+  .iv-title {
+    font-size: 20px;
+    max-width: 60%;
+  }
+}
+
+.iv-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iv-zoom-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 6px 12px;
+  border-radius: 9999px;
+}
+
+.iv-zoom-percent {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.iv-image-area {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+.iv-image-wrap {
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 80vh;
+  transition: transform 0.1s ease-out;
+  box-sizing: border-box;
+}
+
+.iv-image {
+  max-width: 100%;
+  max-height: calc(80vh - 120px);
+  object-fit: contain;
+  user-select: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.15s ease-out;
+  display: block;
+}
+
+.iv-footer {
+  padding: 12px 24px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.iv-footer-desktop { display: none; }
+.iv-footer-mobile { display: inline; }
+
+@media (min-width: 640px) {
+  .iv-footer-desktop { display: inline; }
+  .iv-footer-mobile { display: none; }
+}
+
+.iv-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+.iv-nav-button.left { left: 12px; }
+.iv-nav-button.right { right: 12px; }
+
+.iv-nav-button .btn {
+  background-color: rgba(0,0,0,0.4);
+  color: #fff;
+}
